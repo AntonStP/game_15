@@ -1,0 +1,20 @@
+.cell {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(59, 72, 138);
+  @include option(border-radius, 15);
+  box-shadow: 0px 0px 0px 10px rgb(36, 40, 80) inset;
+  box-sizing: border-box;
+  user-select: none;
+
+  &__value {
+    font-weight: bold;
+    color: #c6dcd1;
+    font-size: 1em;
+    @include MOBILE {
+      font-size: .5em;
+    }
+  }
+}

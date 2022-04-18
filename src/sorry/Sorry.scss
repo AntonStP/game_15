@@ -1,0 +1,11 @@
+.sorry {
+  @include fake-modal();
+
+  &__image {
+    width: 100%;
+    @include option(margin, 10 auto 20);
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.game-field {
+  position: relative;
+  @include option(margin, 10px auto 40px);
+  @include option(width, 500px, 300);
+  @include option(height, 500px, 300);
+  box-shadow: 0px 0px 4px #5b71de;
+  background: papayawhip;
+  @include option(border-radius, 15);
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  &-enter-done {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+  }
+
+
+  &__fake-win {
+    position: absolute;
+    right: -70%;
+    top: 50%;
+    transform: translate(0%,-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include option(width, 150, 100);
+    @include option(height, 50, 30);
+    color: #000000;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    cursor: pointer;
+    @include MOBILE {
+      right: auto;
+      left: 50%;
+      top: auto;
+      bottom: -60%;
+      transform: translate(-50%,0%);
+      font-size: .7em;
+    }
+  }
+}

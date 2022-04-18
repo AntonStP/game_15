@@ -1,0 +1,76 @@
+@mixin option($n, $v, $vm: $v, $vt: $vm) {
+  @include DESKTOP {
+    #{$n}: $v;
+  }
+  @include TABLET-L {
+    #{$n}: $v;
+  }
+  @include MOBILE {
+    #{$n}: $vm;
+  }
+  @include TABLET {
+    #{$n}: $vt;
+  }
+}
+@mixin option-mob($n, $vm, $vt: $vm){
+  @include MOBILE{
+    #{$n}:($vm);
+  }
+  @include TABLET{
+    #{$n}:($vt);
+  }
+}
+
+@mixin option-desk($n, $v){
+  @include DESKTOP{
+    #{$n}:($v);
+  }
+  @include TABLET-L{
+    #{$n}:($v);
+  }
+}
+
+@mixin fake-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%,-50%);
+  background: #6c6c6c;
+  z-index: 1111;
+  transition: opacity .3s ease-in-out;
+  opacity: 0;
+  &-enter-done {
+    opacity: 1;
+  }
+  &-exit-active {
+    opacity: 0;
+  }
+
+  &__block {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    @include option(width, 320, 300);
+    @include option(padding, 30 20);
+    background: #FFFFFF;
+  }
+
+  &__block-text {
+    @include option(font-size, 25);
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .button {
+    min-width: inherit;
+    @include MOBILE {
+      display: flex;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
